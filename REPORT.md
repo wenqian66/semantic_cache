@@ -12,15 +12,16 @@ Q3: "How does global warming affect corn production?"
 
 ### 1) embedding the whole conversation (failed)
 
-At first, I embedded the current query together with 3 previous turns, then used this single embedding for similarity search.
+At first, I embedded the current query together with 3 previous turns, then used this simple embedding for similarity search.
 However, even though Q2 is about wheat, it still matched the cached entry for corn with a similarity score above 0.92.
-Raising the threshold didn’t help because the embedding was mixed with too much context, the historical “corn” content made “wheat” look similar.
+Raising the threshold didn’t help because the embedding was mixed with too much context, the historical "corn" content made "wheat" look similar.
 In short, including the historical conversation and simple similarity filter caused semantic contamination and incorrect cache hits.
 
 ### 2) term-based filter (failed)
 
 Next, I tried extracting keywords from each query (using a simple stemmer or spaCy) and compared them using Jaccard similarity.
-This method successfully blocked cache hits between Q1 and Q2 (corn & wheat), but it also wrongly rejected Q3, which is actually semantically close to Q1.
+See utils.py.
+This method successfully blocked cache hits between Q1 and Q2 (corn & wheat), but it rejected Q3 by mistake, which is actually semantically close to Q1.
 The term filter reduced false positives but also blocked correct matches, which defeats the purpose of saving LLM calls.
 So, using only a term filter was too strict and not reliable.
 
@@ -44,6 +45,7 @@ FAISS retrieves top-k similar queries based on cosine similarity. This ensures t
     if query_index.ntotal > 0:
             k = min(10, query_index.ntotal)
             query_sims, query_inds = query_index.search(query_emb.reshape(1, -1), k=k)
+
 ```
 #### Stage 2: Context-level validation
 
@@ -58,15 +60,12 @@ FAISS retrieves top-k similar queries based on cosine similarity. This ensures t
       return c / np.linalg.norm(c)
   ```
 
-A context embedding is computed by exponentially weighting recent query embeddings (compute_context_embedding with decay=0.5).
-
-Each candidate’s stored context embedding is compared with the new one (threshold_stage2 = 0.85).
+A context embedding is computed by exponentially weighting recent query embeddings. (compute_context_embedding with decay=0.5; history_embs[-5:]+query_emb)
 
 A cache hit is confirmed only when both query-level and context-level similarities are above the thresholds.
 
 * Confirm cache hit **only if** both pass: `query_sim > τ1` **and** `ctx_sim > τ2`.
 * **Metadata:** answer, session_id, and the context embedding used when the answer was created (`context_embedding`), plus timestamp.
-
 > Defaults: `threshold_stage1 = 0.90`, `threshold_stage2 = 0.85`, decay `= 0.5`, last `5` turns.
 
 
@@ -79,7 +78,7 @@ The system consists of four components:
 1. **Session Manager** — maintains per-user conversation history.
 2. **Context Encoder** — builds context-aware embeddings from the last *k* turns using decay-weighted attention.
 3. **Semantic Cache** — stores responses and embeddings; retrieves via FAISS vector search.
-4. **LLM Interface** — calls Gemini model when cache misses occur.
+4. **LLM Interface** — calls Gemini model when cache misses occur. In this project, the function call_llm in semantic_cache.py uses gemini-2.5-flash-lite.
 
 ### 2.2 Workflow
 
@@ -89,51 +88,34 @@ The system consists of four components:
 4. If similarity ≥ threshold (τ₁, τ₂), return cached answer; otherwise call Gemini LLM.
 5. Store new query–embedding–answer triplet into cache for future reuse.
 
-### 2.3 Embedding Strategy
+### 2.3 Vector Store
 
-Each turn’s representation is:
-[
-g = \beta \cdot \text{AttentionWeighted}(H, q) + (1 - \beta)q
-]
-where *H* are historical embeddings and *q* is the current query embedding.
-This ensures **semantic continuity** across related turns while minimizing contamination from unrelated context.
+The project uses **FAISS (CPU)** considering its mature performance, fast cosine similarity search, and easy in-memory setup suitable for POF evaluation.
 
-### 2.4 Vector Store
-
-The project uses **FAISS (CPU)** due to its mature performance, fast cosine similarity search, and easy in-memory setup suitable for proof-of-concept evaluation.
-
-## 3. Implementation Details
+## 3. Details
 
 * **Language:** Python 3.8+
-* **Dependencies:** `faiss-cpu`, `google-genai`, `numpy`, `python-dotenv`
-* **Embeddings Model:** `models/embedding-001` from Google Gemini
+* **Embeddings Model:** `embedding-001` 
 * **Cache Storage:** In-memory FAISS index + metadata dictionary
 * **Thresholds:** Two-stage comparison: session τ₁ and global τ₂
 * **Context window:** Last 5 turns per session
-* **Decay:** 0.7 per turn
-* **Blending factor:** β = 0.6
+
 
 ## 4. Evaluation Setup
 
 ### 4.1 Dataset
 
-A manually constructed evaluation set of **200+ queries across 40 sessions**, spanning domains such as:
-
-* Agriculture and Climate
-* Machine Learning
-* Python Programming
-* Health and Medicine
-* Energy and Environment
-* Math and Economics
+A manually constructed evaluation set of **200+ queries across 40 sessions**, see **evaluation_dataset.json**
+A smaller dataset in the similar format **paras_dataset.json**, with **50+ sessions**
 
 ### 4.2 Metrics
 
 The system is evaluated on:
 
-* **Cache Hit Rate** — proportion of reused responses.
-* **LLM Calls Avoided** — reduction in total API requests.
-* **Average Latency (Cache vs LLM)** — runtime comparison.
-* **Speedup** — ratio of average LLM latency to cache latency.
+* **Cache Hit Rate** 
+* **LLM Calls Avoided** 
+* **Average Latency (Cache vs LLM)** 
+* **Speedup** : average LLM latency / cache latency.
 
 ### 4.3 Testing Conditions
 
@@ -147,6 +129,7 @@ and embedding dimensions **256, 512, 768**.
 
 ## 5. Results Summary
 
+**threshold_dim_comparison.json**
 | Dim | Setting  | Hit rate | Speedup | LLM calls | Cache hits | Total |
 | --- | -------- | -------- | ------- | --------- | ---------- | ----- |
 | 256 | Strict   | 25.4%    | 19.2x   | 53        | 18         | 71    |
@@ -161,6 +144,7 @@ and embedding dimensions **256, 512, 768**.
 
 **Best Trade-off:** 256d (Balanced) — *57.7% hit rate, 22.8× latency reduction*.
 
+**evaluation_results.json**
 **Aggregated metrics:**
 
 * Total queries: 187
