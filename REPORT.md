@@ -99,7 +99,7 @@ The project uses **FAISS (CPU)** considering its mature performance, fast cosine
 * **Cache Storage:** In-memory FAISS index + metadata dictionary
 * **Thresholds:** Two-stage comparison: session τ₁ and global τ₂
 * **Context window:** Last 5 turns per session
-* **Mode:** Global mode by default， each session can access embeddings from previous sessions. This is useful for evaluation but would not be allowed in real-world applications due to privacy and data isolation concerns.
+* **Mode:** Global mode by default， each session can access embeddings from previous sessions. Session mode restricts matching to within-session only
 
 
 ## 4. Evaluation Setup
