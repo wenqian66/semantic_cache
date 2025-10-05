@@ -130,8 +130,8 @@ and embedding dimensions **256, 512, 768**.
 All tests were run with top-k = 10 and decay = 0.5
 
 ## 5. Results Summary
-### 5.1 
-**threshold_dim_comparison.json**
+### 5.1 threshold_dim_comparison.json
+
 | Dim | Setting  | Hit rate | Speedup | LLM calls | Cache hits | Total |
 | --- | -------- | -------- | ------- | --------- | ---------- | ----- |
 | 256 | Strict   | 25.4%    | 19.2x   | 53        | 18         | 71    |
@@ -147,7 +147,8 @@ All tests were run with top-k = 10 and decay = 0.5
 **Best Trade-off:** 256d (Balanced) — *57.7% hit rate, 22.8× latency reduction*. 
 Based on latency and hit-rate metrics only; the actual quality of cached answers still needs manual or model-based accuracy checking.
 
-**Aggregated metrics for τ₁ = 0.90, τ₂ = 0.85, 768 dim**(evaluation_results.json)
+### 5.2 evaluation_results.json
+**Aggregated metrics for τ₁ = 0.90, τ₂ = 0.85, 768 dim**
 
 * Total queries: 187
 * Cache hits: 68
@@ -156,8 +157,9 @@ Based on latency and hit-rate metrics only; the actual quality of cached answers
 * Average cache latency: 0.21 s
 * Overall speedup: **55.7×**
 
-### 5.2 **threshold_dim_comparison.json** accuracy sample check
+### 5.3 accuracy sample check
 
+check accuracy for **threshold_dim_comparison.json** result
 ### Session 000 — Climate Change & Agriculture
 | Q# | Query | Expected | 256d-Strict | 256d-Balanced | 256d-Relaxed | 512d-Balanced | 768d-Balanced |
 |----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
