@@ -217,29 +217,15 @@ Another possible way is to assign a TTL (time-to-live) based on topic, shorter f
 
 ### 7.1 Limitations
 
-* Context decay and attention may lose relevance in long conversations with topic drift.
-* Current system assumes a single-turn context scope (last 5 turns).
-* No dynamic update of thresholds based on conversation domain or entropy.
+The current version works well for short chats but not for long or complex ones.
+Because the cache only looks at the last five turns, it quickly loses track of older context.
+For example, if a user talks about topic A in turns 1–4, switches to topic B in turns 5–9, and then comes back to topic A at turn 10, the cache won’t recognize it.
+By that point, the earlier turns are forgotten, the context embedding is dominated by topic B, and even a previously cached answer about topic A won't be reused.
+  
+Also, the system doesn’t check factual accuracy but only focus on semantic similarity, two questions might sound similar but need different answers. For example "What is the impact of climate change on corn yields?" and "What is the impact of climate change on wheat yields?" have high similarity because the sentence pattern is the same. The system might mistakenly return a cached answer about corn when the user is actually asking about wheat. This happens because embeddings capture question structure without distinguishing that corn and wheat are different. 
 
-### 7.2 Advanced Caching Proposal for AI Agents
+### 7.2 Caching Proposal for AI Agents
 
-For multi-agent reasoning frameworks (e.g., ReAct or Plan-Execute):
 
-* **What to cache:** intermediate tool outputs, reasoning traces, and final responses.
-* **Cache key:** embedding of *(user goal + current agent state + tool call signature)*.
-* **Example:**
 
-  ```
-  Goal: “Summarize research papers on AI policy”
-  State: “tool=ScholarSearch, query='AI regulation'”
-  ```
-
-  → Embed this combined context for reusing tool outputs across similar reasoning branches.
-
-## 8. Conclusion
-
-This proof-of-concept demonstrates that **context-aware semantic caching** can significantly reduce redundant LLM calls, yielding up to **23× latency improvement** and **nearly 80% reuse** under relaxed thresholds.
-The architecture generalizes to any conversational system with minimal cost, serving as a scalable foundation for future **LLM efficiency optimization** in research and production environments.
-
----
 
