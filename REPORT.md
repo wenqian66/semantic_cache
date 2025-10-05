@@ -106,7 +106,7 @@ The project uses **FAISS (CPU)** considering its mature performance, fast cosine
 ### 4.1 Dataset
 
 A manually constructed evaluation set of **200+ queries across 40 sessions**, see **evaluation_dataset.json**
-A smaller dataset in the similar format **paras_dataset.json**, with **50+ sessions**
+A smaller dataset **paras_dataset.json** that contains **50+ sessions**
 
 ### 4.2 Metrics
 
@@ -119,16 +119,17 @@ The system is evaluated on:
 
 ### 4.3 Testing Conditions
 
-Each configuration was tested under three threshold regimes:
+Each configuration was tested under three threshold:
 
 * **Strict:** τ₁ = 0.95, τ₂ = 0.90
 * **Balanced:** τ₁ = 0.90, τ₂ = 0.85
 * **Relaxed:** τ₁ = 0.85, τ₂ = 0.80
 
 and embedding dimensions **256, 512, 768**.
+All tests were run with top-k = 10 and decay = 0.5
 
 ## 5. Results Summary
-
+### 5.1 
 **threshold_dim_comparison.json**
 | Dim | Setting  | Hit rate | Speedup | LLM calls | Cache hits | Total |
 | --- | -------- | -------- | ------- | --------- | ---------- | ----- |
@@ -142,10 +143,10 @@ and embedding dimensions **256, 512, 768**.
 | 768 | Balanced | 43.7%    | 20.4x   | 40        | 31         | 71    |
 | 768 | Relaxed  | 69.0%    | 19.8x   | 22        | 49         | 71    |
 
-**Best Trade-off:** 256d (Balanced) — *57.7% hit rate, 22.8× latency reduction*.
+**Best Trade-off:** 256d (Balanced) — *57.7% hit rate, 22.8× latency reduction*. 
+Based on latency and hit-rate metrics only; the actual quality of cached answers still needs manual or model-based accuracy checking.
 
-**evaluation_results.json**
-**Aggregated metrics:**
+**Aggregated metrics for τ₁ = 0.90, τ₂ = 0.85, 768 dim**(evaluation_results.json)
 
 * Total queries: 187
 * Cache hits: 68
@@ -153,6 +154,38 @@ and embedding dimensions **256, 512, 768**.
 * Average LLM latency: 11.72 s
 * Average cache latency: 0.21 s
 * Overall speedup: **55.7×**
+
+### 5.2 **threshold_dim_comparison.json** accuracy sample check
+
+### Session 000 — Climate Change & Agriculture
+| Q# | Query | Expected | 256d-Strict | 256d-Balanced | 256d-Relaxed | 512d-Balanced | 768d-Balanced |
+|----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
+| Q1 | What is the impact of climate change on corn yields in the US? | llm | llm | llm | llm | llm | llm |
+| Q2 | How does global warming affect corn production? | cache | cache | cache | cache | cache | cache |
+| Q3 | What factors influence maize crop productivity? | cache | llm | llm | cache | llm | llm |
+| Q4 | Can you explain corn yield variations? | cache | llm | cache | cache | llm | llm |
+| Q5 | What about wheat yields under climate change? | llm | llm | cache | cache | cache | cache |
+
+---
+
+### Session 002 — Wheat Production
+| Q# | Query | Expected | 256d-Strict | 256d-Balanced | 256d-Relaxed | 512d-Balanced | 768d-Balanced |
+|----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
+| Q1 | How does climate change affect wheat production in North America? | llm | llm | cache | cache | cache | cache |
+| Q2 | What are the main threats to wheat farming? | cache | llm | llm | llm | llm | llm |
+| Q3 | How do rising temperatures impact wheat? | cache | llm | cache | cache | llm | llm |
+
+---
+
+### Session 005 — Supervised Learning
+| Q# | Query | Expected | 256d-Strict | 256d-Balanced | 256d-Relaxed | 512d-Balanced | 768d-Balanced |
+|----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
+| Q1 | What is supervised learning? | llm | llm | cache | cache | llm | cache |
+| Q2 | Explain supervised learning | cache | cache | cache | cache | cache | llm |
+| Q3 | How does supervised ML work? | cache | cache | cache | cache | cache | cache |
+| Q4 | What are some examples? | cache | llm | llm | llm | llm | llm |
+| Q5 | What about unsupervised learning? | llm | llm | cache | cache | llm | llm |
+
 
 ## 6. Analysis and Discussion
 
