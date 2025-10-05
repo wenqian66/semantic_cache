@@ -99,6 +99,7 @@ The project uses **FAISS (CPU)** considering its mature performance, fast cosine
 * **Cache Storage:** In-memory FAISS index + metadata dictionary
 * **Thresholds:** Two-stage comparison: session τ₁ and global τ₂
 * **Context window:** Last 5 turns per session
+* **Mode:** Global mode by default， each session can access embeddings from previous sessions. This is useful for evaluation but would not be allowed in real-world applications due to privacy and data isolation concerns.
 
 
 ## 4. Evaluation Setup
@@ -191,8 +192,8 @@ Based on latency and hit-rate metrics only; the actual quality of cached answers
 
 ### 6.1 Threshold Sensitivity
 
-Lower thresholds (Relaxed) improve reuse but risk semantic drift; stricter thresholds preserve accuracy at the cost of more LLM calls.
-A balanced configuration (τ₁=0.9, τ₂=0.85) achieves the best performance–fidelity tradeoff.
+The result clearly shows that lower thresholds (Relaxed: τ₁=0.85, τ₂=0.80) increase cache hits but introduces more false positives, such as cases where unrelated questions are incorrectly matched.
+In contrast, stricter thresholds minimize such mismatches but cause unnecessary LLM calls, increasing cost.
 
 ### 6.2 Embedding Dimensionality
 
@@ -201,15 +202,16 @@ This suggests diminishing returns for larger embeddings in low-data semantic cac
 
 ### 6.3 Scalability
 
-The FAISS index supports sub-linear retrieval complexity (O(\log n)), but storing millions of sessions would require:
+The cache currently runs fully in memory, storing the FAISS index, text, answers, and session info. This works for small datasets but doesn’t scale. The IndexFlatIP compares every new query with all stored vectors, which becomes slow as data grows.
 
-* Sharding by topic or user ID
-* Periodic persistence to disk
-* Asynchronous re-indexing
+Possible improvements include using approximate indexing or sharding by topic/user to handle larger datasets efficiently.
+
 
 ### 6.4 Eviction Strategy
 
-A future extension could implement **LRU (Least Recently Used)** or **semantic distance-based** eviction to control memory usage without losing relevant cached entries.
+In the current version, the cache keeps growing without limits. A practical way to handle this is to use an LFU (Least Frequently Used) strategy with time decay. This means tracking how often and how recently each entry is used, then removing those that are old or rarely accessed.
+
+Another possible way is to assign a TTL (time-to-live) based on topic, shorter for fast-changing content like news, and longer for stable or factual information.
 
 ## 7. Limitations and Extensions
 
