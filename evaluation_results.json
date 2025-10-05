@@ -1,0 +1,1342 @@
+{
+  "config": {
+    "threshold_stage1": 0.9,
+    "threshold_stage2": 0.85,
+    "mode": "global"
+  },
+  "metrics": {
+    "total_queries": 187,
+    "llm_calls": 119,
+    "cache_hits": 68,
+    "total_latency_llm": 1394.2953169345856,
+    "total_latency_cache": 14.298539400100708,
+    "hit_rate": 0.36363636363636365,
+    "avg_latency_llm": 11.716767369198198,
+    "avg_latency_cache": 0.2102726382367751,
+    "speedup": 55.721787996042856
+  },
+  "sessions": [
+    {
+      "session_id": "session_000",
+      "queries": [
+        {
+          "query": "What is the impact of climate change on corn yields?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.537138938903809
+        },
+        {
+          "query": "How does global warming affect corn production?",
+          "source": "cache",
+          "similarity": 0.9840177540140692,
+          "latency": 0.575969934463501
+        },
+        {
+          "query": "What factors influence maize crop productivity?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.91382122039795
+        },
+        {
+          "query": "Can you explain corn yield variations?",
+          "source": "cache",
+          "similarity": 0.9435464334919396,
+          "latency": 0.16851115226745605
+        },
+        {
+          "query": "What about wheat yields under climate change?",
+          "source": "cache",
+          "similarity": 0.9652547281552074,
+          "latency": 0.184128999710083
+        }
+      ]
+    },
+    {
+      "session_id": "session_001",
+      "queries": [
+        {
+          "query": "How does climate change affect wheat production?",
+          "source": "cache",
+          "similarity": 0.9246872663497925,
+          "latency": 0.18294882774353027
+        },
+        {
+          "query": "What are the main threats to wheat farming?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.23724102973938
+        },
+        {
+          "query": "How do rising temperatures impact wheat?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.09466028213501
+        },
+        {
+          "query": "What about soybeans?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.31450605392456
+        }
+      ]
+    },
+    {
+      "session_id": "session_002",
+      "queries": [
+        {
+          "query": "What is the impact of climate change on corn yields?",
+          "source": "cache",
+          "similarity": 0.9999998807907104,
+          "latency": 0.1876683235168457
+        },
+        {
+          "query": "How does drought affect crop production?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.653125047683716
+        },
+        {
+          "query": "What irrigation methods work best?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.38609790802002
+        },
+        {
+          "query": "Can technology help improve yields?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.976535081863403
+        }
+      ]
+    },
+    {
+      "session_id": "session_003",
+      "queries": [
+        {
+          "query": "What are sustainable farming practices?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.477164030075073
+        },
+        {
+          "query": "How can farmers adapt to climate change?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.373833894729614
+        },
+        {
+          "query": "What role does soil health play?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.5028228759765625
+        },
+        {
+          "query": "Tell me about crop rotation benefits",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.414366006851196
+        }
+      ]
+    },
+    {
+      "session_id": "session_004",
+      "queries": [
+        {
+          "query": "What is machine learning?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.386047840118408
+        },
+        {
+          "query": "Explain machine learning to me",
+          "source": "cache",
+          "similarity": 0.9786510245238654,
+          "latency": 0.19936513900756836
+        },
+        {
+          "query": "Can you describe what ML is?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 2.705035924911499
+        },
+        {
+          "query": "How does machine learning work?",
+          "source": "cache",
+          "similarity": 0.9714491846836553,
+          "latency": 0.16341304779052734
+        },
+        {
+          "query": "What about deep learning?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.964312076568604
+        }
+      ]
+    },
+    {
+      "session_id": "session_005",
+      "queries": [
+        {
+          "query": "What is supervised learning?",
+          "source": "cache",
+          "similarity": 0.9063321352005005,
+          "latency": 0.1943070888519287
+        },
+        {
+          "query": "Explain supervised learning",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.766121864318848
+        },
+        {
+          "query": "How does supervised ML work?",
+          "source": "cache",
+          "similarity": 0.9863793829514638,
+          "latency": 0.18198800086975098
+        },
+        {
+          "query": "What are some examples?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.288582801818848
+        },
+        {
+          "query": "What about unsupervised learning?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.217554807662964
+        }
+      ]
+    },
+    {
+      "session_id": "session_006",
+      "queries": [
+        {
+          "query": "What are neural networks?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.760200023651123
+        },
+        {
+          "query": "How do neural networks function?",
+          "source": "cache",
+          "similarity": 0.97578642294121,
+          "latency": 0.18980813026428223
+        },
+        {
+          "query": "Explain neural nets",
+          "source": "cache",
+          "similarity": 0.9717747710000149,
+          "latency": 0.17634820938110352
+        },
+        {
+          "query": "What is backpropagation?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.05344295501709
+        },
+        {
+          "query": "How do you train a neural network?",
+          "source": "cache",
+          "similarity": 0.9405918663610169,
+          "latency": 0.16971707344055176
+        }
+      ]
+    },
+    {
+      "session_id": "session_007",
+      "queries": [
+        {
+          "query": "What is machine learning?",
+          "source": "cache",
+          "similarity": 0.9999999403953552,
+          "latency": 0.1767129898071289
+        },
+        {
+          "query": "What's the difference between AI and ML?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.699880838394165
+        },
+        {
+          "query": "How is ML used in real life?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.45213508605957
+        },
+        {
+          "query": "Give me examples of ML applications",
+          "source": "cache",
+          "similarity": 0.984403433629192,
+          "latency": 0.18813490867614746
+        }
+      ]
+    },
+    {
+      "session_id": "session_008",
+      "queries": [
+        {
+          "query": "What is reinforcement learning?",
+          "source": "cache",
+          "similarity": 0.9090054035186768,
+          "latency": 0.20063996315002441
+        },
+        {
+          "query": "How does RL work?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.788579225540161
+        },
+        {
+          "query": "What are some RL algorithms?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 16.292297840118408
+        },
+        {
+          "query": "Can you explain Q-learning?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 14.307940244674683
+        },
+        {
+          "query": "What about policy gradients?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 15.317561149597168
+        }
+      ]
+    },
+    {
+      "session_id": "session_009",
+      "queries": [
+        {
+          "query": "How do I sort a list in Python?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 13.62529182434082
+        },
+        {
+          "query": "What's the method to sort Python lists?",
+          "source": "cache",
+          "similarity": 0.9848820288310376,
+          "latency": 0.46832990646362305
+        },
+        {
+          "query": "Can you show me list sorting in Python?",
+          "source": "cache",
+          "similarity": 0.975259793125518,
+          "latency": 0.16918182373046875
+        },
+        {
+          "query": "What about sorting in reverse order?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.04801893234253
+        },
+        {
+          "query": "How do I sort by a custom key?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.9143249988555908
+        }
+      ]
+    },
+    {
+      "session_id": "session_010",
+      "queries": [
+        {
+          "query": "How do I read a file in Python?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 17.36636185646057
+        },
+        {
+          "query": "What's the best way to read files?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.339917182922363
+        },
+        {
+          "query": "Can you explain file I/O in Python?",
+          "source": "cache",
+          "similarity": 0.9594221039137447,
+          "latency": 0.1956028938293457
+        },
+        {
+          "query": "What about writing to files?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 18.675188779830933
+        },
+        {
+          "query": "How do I handle file exceptions?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 13.228296041488647
+        }
+      ]
+    },
+    {
+      "session_id": "session_011",
+      "queries": [
+        {
+          "query": "What are Python dictionaries?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 22.88383197784424
+        },
+        {
+          "query": "How do dictionaries work in Python?",
+          "source": "cache",
+          "similarity": 0.9816682513370765,
+          "latency": 0.19721102714538574
+        },
+        {
+          "query": "Can you explain Python dicts?",
+          "source": "cache",
+          "similarity": 0.9739391974386828,
+          "latency": 0.18811583518981934
+        },
+        {
+          "query": "How do I iterate over a dictionary?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.318505048751831
+        },
+        {
+          "query": "What about nested dictionaries?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.673635005950928
+        }
+      ]
+    },
+    {
+      "session_id": "session_012",
+      "queries": [
+        {
+          "query": "How do I sort a list in Python?",
+          "source": "cache",
+          "similarity": 1.0,
+          "latency": 0.16788411140441895
+        },
+        {
+          "query": "What are list comprehensions?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.300341129302979
+        },
+        {
+          "query": "How do I use list comprehensions?",
+          "source": "cache",
+          "similarity": 0.9835863650990981,
+          "latency": 0.19025373458862305
+        },
+        {
+          "query": "Can you show examples?",
+          "source": "cache",
+          "similarity": 0.9474847715585637,
+          "latency": 0.19365978240966797
+        }
+      ]
+    },
+    {
+      "session_id": "session_013",
+      "queries": [
+        {
+          "query": "What is object-oriented programming?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.277812004089355
+        },
+        {
+          "query": "Explain OOP concepts",
+          "source": "cache",
+          "similarity": 0.9628037157412727,
+          "latency": 0.18041229248046875
+        },
+        {
+          "query": "What are classes in Python?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.653475999832153
+        },
+        {
+          "query": "How do I create a class?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.996673107147217
+        },
+        {
+          "query": "What about inheritance?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 13.297467231750488
+        }
+      ]
+    },
+    {
+      "session_id": "session_014",
+      "queries": [
+        {
+          "query": "What are the symptoms of diabetes?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 5.774394273757935
+        },
+        {
+          "query": "How do you diagnose diabetes?",
+          "source": "cache",
+          "similarity": 0.9580641614649055,
+          "latency": 0.18080496788024902
+        },
+        {
+          "query": "What are diabetes treatment options?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.8641858100891113
+        },
+        {
+          "query": "Can diabetes be prevented?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 1.1389410495758057
+        },
+        {
+          "query": "What about type 2 diabetes specifically?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 5.952479124069214
+        }
+      ]
+    },
+    {
+      "session_id": "session_015",
+      "queries": [
+        {
+          "query": "What are the symptoms of heart disease?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.236974000930786
+        },
+        {
+          "query": "How is heart disease diagnosed?",
+          "source": "cache",
+          "similarity": 0.9572853243641727,
+          "latency": 0.1702718734741211
+        },
+        {
+          "query": "What are risk factors for heart disease?",
+          "source": "cache",
+          "similarity": 0.9515379649708753,
+          "latency": 0.17094206809997559
+        },
+        {
+          "query": "How can I prevent heart disease?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.8428049087524414
+        },
+        {
+          "query": "What about high blood pressure?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.8715989589691162
+        }
+      ]
+    },
+    {
+      "session_id": "session_016",
+      "queries": [
+        {
+          "query": "What are the symptoms of diabetes?",
+          "source": "cache",
+          "similarity": 0.9999999403953552,
+          "latency": 0.16684913635253906
+        },
+        {
+          "query": "What causes diabetes?",
+          "source": "cache",
+          "similarity": 0.955048915066093,
+          "latency": 0.1860649585723877
+        },
+        {
+          "query": "Is diabetes hereditary?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.9152340888977051
+        },
+        {
+          "query": "How common is diabetes?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 4.630541086196899
+        }
+      ]
+    },
+    {
+      "session_id": "session_017",
+      "queries": [
+        {
+          "query": "What is hypertension?",
+          "source": "cache",
+          "similarity": 0.8972387457433401,
+          "latency": 0.1843550205230713
+        },
+        {
+          "query": "What causes high blood pressure?",
+          "source": "cache",
+          "similarity": 0.9307197348652756,
+          "latency": 0.17198514938354492
+        },
+        {
+          "query": "How do you treat hypertension?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.049723148345947
+        },
+        {
+          "query": "What lifestyle changes help?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 6.805794954299927
+        }
+      ]
+    },
+    {
+      "session_id": "session_018",
+      "queries": [
+        {
+          "query": "What are the symptoms of the flu?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.451896905899048
+        },
+        {
+          "query": "How is flu different from a cold?",
+          "source": "cache",
+          "similarity": 0.9568691742176557,
+          "latency": 0.18720197677612305
+        },
+        {
+          "query": "When should I see a doctor?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 5.221742153167725
+        },
+        {
+          "query": "What about flu prevention?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 6.720071077346802
+        },
+        {
+          "query": "Do flu vaccines work?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 6.207345962524414
+        }
+      ]
+    },
+    {
+      "session_id": "session_019",
+      "queries": [
+        {
+          "query": "What are the benefits of renewable energy?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.020512104034424
+        },
+        {
+          "query": "Why should we use renewable energy?",
+          "source": "cache",
+          "similarity": 0.9711454157778626,
+          "latency": 0.16822314262390137
+        },
+        {
+          "query": "What are renewable energy advantages?",
+          "source": "cache",
+          "similarity": 0.9799611052755028,
+          "latency": 0.413524866104126
+        },
+        {
+          "query": "How does renewable energy help the environment?",
+          "source": "cache",
+          "similarity": 0.9710047409374246,
+          "latency": 0.19168996810913086
+        },
+        {
+          "query": "What about solar power specifically?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.625760078430176
+        }
+      ]
+    },
+    {
+      "session_id": "session_020",
+      "queries": [
+        {
+          "query": "How does solar power work?",
+          "source": "cache",
+          "similarity": 0.9090464652358958,
+          "latency": 0.1953120231628418
+        },
+        {
+          "query": "Explain solar panels",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.062177896499634
+        },
+        {
+          "query": "What is photovoltaic technology?",
+          "source": "cache",
+          "similarity": 0.9730677345727938,
+          "latency": 0.16696500778198242
+        },
+        {
+          "query": "How efficient are solar panels?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.785210132598877
+        },
+        {
+          "query": "What about solar energy storage?",
+          "source": "cache",
+          "similarity": 0.9440744030535747,
+          "latency": 0.18213486671447754
+        }
+      ]
+    },
+    {
+      "session_id": "session_021",
+      "queries": [
+        {
+          "query": "What are the benefits of renewable energy?",
+          "source": "cache",
+          "similarity": 1.0000001192092896,
+          "latency": 0.1719529628753662
+        },
+        {
+          "query": "How does wind energy work?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.5053870677948
+        },
+        {
+          "query": "What are wind turbines?",
+          "source": "cache",
+          "similarity": 0.9667129516107575,
+          "latency": 0.18354320526123047
+        },
+        {
+          "query": "Where are wind farms located?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.040852308273315
+        }
+      ]
+    },
+    {
+      "session_id": "session_022",
+      "queries": [
+        {
+          "query": "What is hydroelectric power?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.3487091064453125
+        },
+        {
+          "query": "How do hydroelectric dams work?",
+          "source": "cache",
+          "similarity": 0.9635202959665655,
+          "latency": 0.19666099548339844
+        },
+        {
+          "query": "What are the pros and cons?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.974339962005615
+        },
+        {
+          "query": "What about environmental impact?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.967289686203003
+        }
+      ]
+    },
+    {
+      "session_id": "session_023",
+      "queries": [
+        {
+          "query": "What are the features of iPhone 15?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.602008819580078
+        },
+        {
+          "query": "What's new in iPhone 15?",
+          "source": "cache",
+          "similarity": 0.9836444915652747,
+          "latency": 0.16702890396118164
+        },
+        {
+          "query": "Tell me about iPhone 15 specs",
+          "source": "cache",
+          "similarity": 0.9795301740969902,
+          "latency": 0.2335338592529297
+        },
+        {
+          "query": "How much does iPhone 15 cost?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 3.9448840618133545
+        },
+        {
+          "query": "What about the camera?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.182657957077026
+        }
+      ]
+    },
+    {
+      "session_id": "session_024",
+      "queries": [
+        {
+          "query": "What are the features of Samsung Galaxy S24?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.171789169311523
+        },
+        {
+          "query": "What's new in Galaxy S24?",
+          "source": "cache",
+          "similarity": 0.9789499200109109,
+          "latency": 0.1663200855255127
+        },
+        {
+          "query": "Tell me about Samsung S24 specs",
+          "source": "cache",
+          "similarity": 0.977593339900314,
+          "latency": 0.20322608947753906
+        },
+        {
+          "query": "How does it compare to iPhone?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 17.13278102874756
+        },
+        {
+          "query": "What about the battery life?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.361847639083862
+        }
+      ]
+    },
+    {
+      "session_id": "session_025",
+      "queries": [
+        {
+          "query": "What are the features of iPhone 15?",
+          "source": "cache",
+          "similarity": 1.0,
+          "latency": 0.20359301567077637
+        },
+        {
+          "query": "Should I upgrade to iPhone 15?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.710868835449219
+        },
+        {
+          "query": "What's the difference from iPhone 14?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 14.248081922531128
+        },
+        {
+          "query": "Is it worth the price?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.428308963775635
+        }
+      ]
+    },
+    {
+      "session_id": "session_026",
+      "queries": [
+        {
+          "query": "What is 5G technology?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 305.638414144516
+        },
+        {
+          "query": "How does 5G work?",
+          "source": "cache",
+          "similarity": 0.9728287854963424,
+          "latency": 0.3315773010253906
+        },
+        {
+          "query": "What are 5G benefits?",
+          "source": "cache",
+          "similarity": 0.9576631666819597,
+          "latency": 0.25000500679016113
+        },
+        {
+          "query": "Is 5G available everywhere?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 1.2257790565490723
+        },
+        {
+          "query": "What about 5G health concerns?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.8584837913513184
+        }
+      ]
+    },
+    {
+      "session_id": "session_027",
+      "queries": [
+        {
+          "query": "What is the capital of France?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.49120616912841797
+        },
+        {
+          "query": "Tell me about Paris",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 6.881624937057495
+        },
+        {
+          "query": "What are famous landmarks in Paris?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 4.106604099273682
+        },
+        {
+          "query": "What is the population of Paris?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 1.2332110404968262
+        },
+        {
+          "query": "What about French culture?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 14.08471393585205
+        }
+      ]
+    },
+    {
+      "session_id": "session_028",
+      "queries": [
+        {
+          "query": "What is the capital of Germany?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.48075294494628906
+        },
+        {
+          "query": "Tell me about Berlin",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.30692982673645
+        },
+        {
+          "query": "What are famous landmarks in Berlin?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.533579111099243
+        },
+        {
+          "query": "What is the history of Berlin?",
+          "source": "cache",
+          "similarity": 0.9610132135571914,
+          "latency": 0.1859428882598877
+        },
+        {
+          "query": "What about the Berlin Wall?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.279462814331055
+        }
+      ]
+    },
+    {
+      "session_id": "session_029",
+      "queries": [
+        {
+          "query": "What is the capital of France?",
+          "source": "cache",
+          "similarity": 0.9999998807907104,
+          "latency": 0.16528105735778809
+        },
+        {
+          "query": "What is the capital of Spain?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.7795867919921875
+        },
+        {
+          "query": "What is the capital of Italy?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.7337212562561035
+        },
+        {
+          "query": "What is the capital of the UK?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 0.7163572311401367
+        }
+      ]
+    },
+    {
+      "session_id": "session_030",
+      "queries": [
+        {
+          "query": "What is calculus?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 5.650355100631714
+        },
+        {
+          "query": "Explain derivatives",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 18.698786973953247
+        },
+        {
+          "query": "How do you calculate derivatives?",
+          "source": "cache",
+          "similarity": 0.9768163303565067,
+          "latency": 0.20534515380859375
+        },
+        {
+          "query": "What are integrals?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.479761838912964
+        },
+        {
+          "query": "What's the fundamental theorem of calculus?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 6.6684041023254395
+        }
+      ]
+    },
+    {
+      "session_id": "session_031",
+      "queries": [
+        {
+          "query": "What is linear algebra?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.759280920028687
+        },
+        {
+          "query": "What are matrices?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.026171922683716
+        },
+        {
+          "query": "How do you multiply matrices?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.560290098190308
+        },
+        {
+          "query": "What are eigenvectors?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 15.771579265594482
+        },
+        {
+          "query": "What about determinants?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 11.391149997711182
+        }
+      ]
+    },
+    {
+      "session_id": "session_032",
+      "queries": [
+        {
+          "query": "What is calculus?",
+          "source": "cache",
+          "similarity": 0.9999999403953552,
+          "latency": 0.1987302303314209
+        },
+        {
+          "query": "What are real-world applications of calculus?",
+          "source": "cache",
+          "similarity": 0.9562091698513019,
+          "latency": 0.17733001708984375
+        },
+        {
+          "query": "Is calculus hard to learn?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.13100004196167
+        },
+        {
+          "query": "How can I improve at math?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.70219612121582
+        }
+      ]
+    },
+    {
+      "session_id": "session_033",
+      "queries": [
+        {
+          "query": "What is inflation?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.822441101074219
+        },
+        {
+          "query": "What causes inflation?",
+          "source": "cache",
+          "similarity": 0.9730723100817925,
+          "latency": 0.19337916374206543
+        },
+        {
+          "query": "How does inflation affect the economy?",
+          "source": "cache",
+          "similarity": 0.9559570732513774,
+          "latency": 0.18268704414367676
+        },
+        {
+          "query": "How do you measure inflation?",
+          "source": "cache",
+          "similarity": 0.9542965138072382,
+          "latency": 0.1944599151611328
+        },
+        {
+          "query": "What about deflation?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 10.188339233398438
+        }
+      ]
+    },
+    {
+      "session_id": "session_034",
+      "queries": [
+        {
+          "query": "What is supply and demand?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.035597085952759
+        },
+        {
+          "query": "How do supply and demand work?",
+          "source": "cache",
+          "similarity": 0.9877885024210052,
+          "latency": 0.6387453079223633
+        },
+        {
+          "query": "What factors affect supply?",
+          "source": "cache",
+          "similarity": 0.95802339420884,
+          "latency": 0.2002248764038086
+        },
+        {
+          "query": "What factors affect demand?",
+          "source": "cache",
+          "similarity": 0.9365728892720298,
+          "latency": 0.18010497093200684
+        },
+        {
+          "query": "What about market equilibrium?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 5.9015278816223145
+        }
+      ]
+    },
+    {
+      "session_id": "session_035",
+      "queries": [
+        {
+          "query": "What is inflation?",
+          "source": "cache",
+          "similarity": 1.0,
+          "latency": 0.1869957447052002
+        },
+        {
+          "query": "What is monetary policy?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 9.373410940170288
+        },
+        {
+          "query": "How do central banks control inflation?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 6.869616985321045
+        },
+        {
+          "query": "What about interest rates?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 8.532448053359985
+        }
+      ]
+    },
+    {
+      "session_id": "session_036",
+      "queries": [
+        {
+          "query": "How do I make pasta?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 16.057641983032227
+        },
+        {
+          "query": "What's the best way to cook pasta?",
+          "source": "cache",
+          "similarity": 0.9709897529043591,
+          "latency": 0.18872904777526855
+        },
+        {
+          "query": "How long do you boil pasta?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 5.8475048542022705
+        },
+        {
+          "query": "What about pasta sauce?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 13.4754958152771
+        },
+        {
+          "query": "How do I make carbonara?",
+          "source": "cache",
+          "similarity": 0.9607685087198676,
+          "latency": 0.22971391677856445
+        }
+      ]
+    },
+    {
+      "session_id": "session_037",
+      "queries": [
+        {
+          "query": "How do I bake bread?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 26.823456048965454
+        },
+        {
+          "query": "What ingredients do I need for bread?",
+          "source": "cache",
+          "similarity": 0.9613033464776384,
+          "latency": 0.20121502876281738
+        },
+        {
+          "query": "What's the bread making process?",
+          "source": "cache",
+          "similarity": 0.9645789326830266,
+          "latency": 0.1852881908416748
+        },
+        {
+          "query": "How long does bread take to bake?",
+          "source": "cache",
+          "similarity": 0.9567052985999823,
+          "latency": 0.2707509994506836
+        },
+        {
+          "query": "What about sourdough?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 19.594123125076294
+        }
+      ]
+    },
+    {
+      "session_id": "session_038",
+      "queries": [
+        {
+          "query": "What are the rules of basketball?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.37818717956543
+        },
+        {
+          "query": "How do you play basketball?",
+          "source": "cache",
+          "similarity": 0.9744382234739832,
+          "latency": 0.19760799407958984
+        },
+        {
+          "query": "What are basketball positions?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 7.012378931045532
+        },
+        {
+          "query": "Who are famous basketball players?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 12.427794933319092
+        },
+        {
+          "query": "What about the NBA?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 6.119635820388794
+        }
+      ]
+    },
+    {
+      "session_id": "session_039",
+      "queries": [
+        {
+          "query": "What are the rules of soccer?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 15.189194917678833
+        },
+        {
+          "query": "How do you play football?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 13.033447027206421
+        },
+        {
+          "query": "What are soccer positions?",
+          "source": "cache",
+          "similarity": 0.9036009989943525,
+          "latency": 0.18746209144592285
+        },
+        {
+          "query": "Who are famous soccer players?",
+          "source": "cache",
+          "similarity": 0.9014203925052164,
+          "latency": 0.19446611404418945
+        },
+        {
+          "query": "What about the World Cup?",
+          "source": "llm",
+          "similarity": 0.0,
+          "latency": 5.146331071853638
+        }
+      ]
+    }
+  ]
+}

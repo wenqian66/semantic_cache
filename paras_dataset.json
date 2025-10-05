@@ -1,0 +1,184 @@
+{
+  "sessions": [
+    {
+      "session_id": "session_000",
+      "queries": [
+        "What is the impact of climate change on corn yields in the US?",
+        "How does global warming affect corn production?",
+        "What factors influence maize crop productivity?",
+        "Can you explain corn yield variations?",
+        "What about wheat yields under climate change?"
+      ]
+    },
+
+    {
+      "session_id": "session_001",
+      "queries": [
+        "How does global warming affect maize yields in the US?",
+        "What about soybeans under climate change?"
+      ]
+    },
+
+    {
+      "session_id": "session_002",
+      "queries": [
+        "How does climate change affect wheat production in North America?",
+        "What are the main threats to wheat farming?",
+        "How do rising temperatures impact wheat?"
+      ]
+    },
+
+    {
+      "session_id": "session_003",
+      "queries": [
+        "What is machine learning?",
+        "Explain machine learning to me",
+        "Can you describe what ML is?",
+        "How does machine learning work?",
+        "What about deep learning?"
+      ]
+    },
+
+    {
+      "session_id": "session_004",
+      "queries": [
+        "Define machine learning in simple terms",
+        "Is deep learning a subset of machine learning?"
+      ]
+    },
+
+    {
+      "session_id": "session_005",
+      "queries": [
+        "What is supervised learning?",
+        "Explain supervised learning",
+        "How does supervised ML work?",
+        "What are some examples?",
+        "What about unsupervised learning?"
+      ]
+    },
+
+    {
+      "session_id": "session_006",
+      "queries": [
+        "Explain the idea of supervised learning with examples",
+        "How is unsupervised learning different?"
+      ]
+    },
+
+    {
+      "session_id": "session_007",
+      "queries": [
+        "What are neural networks?",
+        "How do neural networks function?",
+        "Explain neural nets",
+        "What is backpropagation?",
+        "How do you train a neural network?"
+      ]
+    },
+
+    {
+      "session_id": "session_008",
+      "queries": [
+        "What is reinforcement learning?",
+        "How does RL work?",
+        "What are some RL algorithms?",
+        "Can you explain Q-learning?",
+        "What about policy gradients?"
+      ]
+    },
+
+    {
+      "session_id": "session_009",
+      "queries": [
+        "How do I sort a list in Python?",
+        "What's the method to sort Python lists?",
+        "Can you show me list sorting in Python?",
+        "What about sorting in reverse order?",
+        "How do I sort by a custom key?"
+      ]
+    },
+
+    {
+      "session_id": "session_010",
+      "queries": [
+        "How do I read a file in Python?",
+        "What's the best way to read files?",
+        "Can you explain file I/O in Python?",
+        "What about writing to files?",
+        "How do I handle file exceptions?"
+      ]
+    },
+
+    {
+      "session_id": "session_011",
+      "queries": [
+        "What are Python dictionaries?",
+        "How do dictionaries work in Python?",
+        "Can you explain Python dicts?",
+        "How do I iterate over a dictionary?",
+        "What about nested dictionaries?"
+      ]
+    },
+
+    {
+      "session_id": "session_012",
+      "queries": [
+        "What are the symptoms of diabetes?",
+        "How do you diagnose diabetes?",
+        "What are diabetes treatment options?",
+        "Can diabetes be prevented?",
+        "What about type 2 diabetes specifically?"
+      ]
+    },
+
+    {
+      "session_id": "session_013",
+      "queries": [
+        "What are the symptoms of diabetes mellitus?",
+        "Is type 2 diabetes preventable?"
+      ]
+    },
+
+    {
+      "session_id": "session_014",
+      "queries": [
+        "What are the benefits of renewable energy?",
+        "Why should we use renewable energy?",
+        "What are renewable energy advantages?",
+        "How does renewable energy help the environment?",
+        "What about solar power specifically?"
+      ]
+    },
+
+    {
+      "session_id": "session_015",
+      "queries": [
+        "List the main advantages of renewable energy sources",
+        "Is solar power the most cost-effective renewable today?"
+      ]
+    },
+
+    {
+      "session_id": "session_016",
+      "queries": [
+        "What is inflation?",
+        "What causes inflation?",
+        "How does inflation affect the economy?",
+        "How do you measure inflation?",
+        "What about deflation?"
+      ]
+    },
+
+    {
+      "session_id": "session_017",
+      "queries": [
+        "Define inflation in economics",
+        "How do central banks control inflation?",
+        "What about interest rates?"
+      ]
+    }
+  ],
+  "total_sessions": 18,
+  "total_queries": 56
+}

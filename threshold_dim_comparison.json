@@ -1,0 +1,191 @@
+[
+  {
+    "name": "256d - Strict",
+    "config": {
+      "dim": 256,
+      "stage1": 0.95,
+      "stage2": 0.9,
+      "name": "Strict",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 53,
+      "cache_hits": 18,
+      "total_latency_llm": 153.58057928085327,
+      "total_latency_cache": 2.714887857437134,
+      "hit_rate": 0.2535211267605634,
+      "avg_latency_llm": 2.897746778884024,
+      "avg_latency_cache": 0.15082710319095188,
+      "speedup": 19.212374417981
+    }
+  },
+  {
+    "name": "256d - Balanced",
+    "config": {
+      "dim": 256,
+      "stage1": 0.9,
+      "stage2": 0.85,
+      "name": "Balanced",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 30,
+      "cache_hits": 41,
+      "total_latency_llm": 88.0126097202301,
+      "total_latency_cache": 5.284703254699707,
+      "hit_rate": 0.5774647887323944,
+      "avg_latency_llm": 2.9337536573410032,
+      "avg_latency_cache": 0.1288952013341392,
+      "speedup": 22.76076709586526
+    }
+  },
+  {
+    "name": "256d - Relaxed",
+    "config": {
+      "dim": 256,
+      "stage1": 0.85,
+      "stage2": 0.8,
+      "name": "Relaxed",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 15,
+      "cache_hits": 56,
+      "total_latency_llm": 48.91961407661438,
+      "total_latency_cache": 7.816490173339844,
+      "hit_rate": 0.7887323943661971,
+      "avg_latency_llm": 3.2613076051076253,
+      "avg_latency_cache": 0.13958018166678293,
+      "speedup": 23.3651193612377
+    }
+  },
+  {
+    "name": "512d - Strict",
+    "config": {
+      "dim": 512,
+      "stage1": 0.95,
+      "stage2": 0.9,
+      "name": "Strict",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 62,
+      "cache_hits": 9,
+      "total_latency_llm": 191.8773331642151,
+      "total_latency_cache": 1.1390762329101562,
+      "hit_rate": 0.1267605633802817,
+      "avg_latency_llm": 3.0947956961970173,
+      "avg_latency_cache": 0.12656402587890625,
+      "speedup": 24.45241192910576
+    }
+  },
+  {
+    "name": "512d - Balanced",
+    "config": {
+      "dim": 512,
+      "stage1": 0.9,
+      "stage2": 0.85,
+      "name": "Balanced",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 42,
+      "cache_hits": 29,
+      "total_latency_llm": 116.28770685195923,
+      "total_latency_cache": 4.461828947067261,
+      "hit_rate": 0.4084507042253521,
+      "avg_latency_llm": 2.768754925046648,
+      "avg_latency_cache": 0.15385617058852624,
+      "speedup": 17.995735331613194
+    }
+  },
+  {
+    "name": "512d - Relaxed",
+    "config": {
+      "dim": 512,
+      "stage1": 0.85,
+      "stage2": 0.8,
+      "name": "Relaxed",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 26,
+      "cache_hits": 45,
+      "total_latency_llm": 81.12278699874878,
+      "total_latency_cache": 7.15937614440918,
+      "hit_rate": 0.6338028169014085,
+      "avg_latency_llm": 3.1201071922595682,
+      "avg_latency_cache": 0.15909724765353733,
+      "speedup": 19.611320989374743
+    }
+  },
+  {
+    "name": "768d - Strict",
+    "config": {
+      "dim": 768,
+      "stage1": 0.95,
+      "stage2": 0.9,
+      "name": "Strict",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 60,
+      "cache_hits": 11,
+      "total_latency_llm": 199.7039783000946,
+      "total_latency_cache": 1.7749056816101074,
+      "hit_rate": 0.15492957746478872,
+      "avg_latency_llm": 3.32839963833491,
+      "avg_latency_cache": 0.1613550619645552,
+      "speedup": 20.62779808585155
+    }
+  },
+  {
+    "name": "768d - Balanced",
+    "config": {
+      "dim": 768,
+      "stage1": 0.9,
+      "stage2": 0.85,
+      "name": "Balanced",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 40,
+      "cache_hits": 31,
+      "total_latency_llm": 120.11176609992981,
+      "total_latency_cache": 4.558924436569214,
+      "hit_rate": 0.43661971830985913,
+      "avg_latency_llm": 3.0027941524982453,
+      "avg_latency_cache": 0.1470620785990069,
+      "speedup": 20.41854828317735
+    }
+  },
+  {
+    "name": "768d - Relaxed",
+    "config": {
+      "dim": 768,
+      "stage1": 0.85,
+      "stage2": 0.8,
+      "name": "Relaxed",
+      "mode": "global"
+    },
+    "metrics": {
+      "total_queries": 71,
+      "llm_calls": 22,
+      "cache_hits": 49,
+      "total_latency_llm": 62.229464054107666,
+      "total_latency_cache": 6.998820781707764,
+      "hit_rate": 0.6901408450704225,
+      "avg_latency_llm": 2.8286120024594394,
+      "avg_latency_cache": 0.14283307717770946,
+      "speedup": 19.8036201302318
+    }
+  }
+]

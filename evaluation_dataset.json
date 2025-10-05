@@ -1,0 +1,312 @@
+{
+    "sessions": [
+        {"session_id": "session_000", "queries": [
+            "What is the impact of climate change on corn yields?",
+            "How does global warming affect corn production?",
+            "What factors influence maize crop productivity?",
+            "Can you explain corn yield variations?",
+            "What about wheat yields under climate change?"
+        ]},
+
+        {"session_id": "session_001", "queries": [
+            "How does climate change affect wheat production?",
+            "What are the main threats to wheat farming?",
+            "How do rising temperatures impact wheat?",
+            "What about soybeans?"
+        ]},
+
+        {"session_id": "session_002", "queries": [
+            "What is the impact of climate change on corn yields?",
+            "How does drought affect crop production?",
+            "What irrigation methods work best?",
+            "Can technology help improve yields?"
+        ]},
+
+        {"session_id": "session_003", "queries": [
+            "What are sustainable farming practices?",
+            "How can farmers adapt to climate change?",
+            "What role does soil health play?",
+            "Tell me about crop rotation benefits"
+        ]},
+
+        {"session_id": "session_004", "queries": [
+            "What is machine learning?",
+            "Explain machine learning to me",
+            "Can you describe what ML is?",
+            "How does machine learning work?",
+            "What about deep learning?"
+        ]},
+
+        {"session_id": "session_005", "queries": [
+            "What is supervised learning?",
+            "Explain supervised learning",
+            "How does supervised ML work?",
+            "What are some examples?",
+            "What about unsupervised learning?"
+        ]},
+
+        {"session_id": "session_006", "queries": [
+            "What are neural networks?",
+            "How do neural networks function?",
+            "Explain neural nets",
+            "What is backpropagation?",
+            "How do you train a neural network?"
+        ]},
+
+        {"session_id": "session_007", "queries": [
+            "What is machine learning?",
+            "What's the difference between AI and ML?",
+            "How is ML used in real life?",
+            "Give me examples of ML applications"
+        ]},
+
+        {"session_id": "session_008", "queries": [
+            "What is reinforcement learning?",
+            "How does RL work?",
+            "What are some RL algorithms?",
+            "Can you explain Q-learning?",
+            "What about policy gradients?"
+        ]},
+
+        {"session_id": "session_009", "queries": [
+            "How do I sort a list in Python?",
+            "What's the method to sort Python lists?",
+            "Can you show me list sorting in Python?",
+            "What about sorting in reverse order?",
+            "How do I sort by a custom key?"
+        ]},
+
+        {"session_id": "session_010", "queries": [
+            "How do I read a file in Python?",
+            "What's the best way to read files?",
+            "Can you explain file I/O in Python?",
+            "What about writing to files?",
+            "How do I handle file exceptions?"
+        ]},
+
+        {"session_id": "session_011", "queries": [
+            "What are Python dictionaries?",
+            "How do dictionaries work in Python?",
+            "Can you explain Python dicts?",
+            "How do I iterate over a dictionary?",
+            "What about nested dictionaries?"
+        ]},
+
+        {"session_id": "session_012", "queries": [
+            "How do I sort a list in Python?",
+            "What are list comprehensions?",
+            "How do I use list comprehensions?",
+            "Can you show examples?"
+        ]},
+
+        {"session_id": "session_013", "queries": [
+            "What is object-oriented programming?",
+            "Explain OOP concepts",
+            "What are classes in Python?",
+            "How do I create a class?",
+            "What about inheritance?"
+        ]},
+
+        {"session_id": "session_014", "queries": [
+            "What are the symptoms of diabetes?",
+            "How do you diagnose diabetes?",
+            "What are diabetes treatment options?",
+            "Can diabetes be prevented?",
+            "What about type 2 diabetes specifically?"
+        ]},
+
+        {"session_id": "session_015", "queries": [
+            "What are the symptoms of heart disease?",
+            "How is heart disease diagnosed?",
+            "What are risk factors for heart disease?",
+            "How can I prevent heart disease?",
+            "What about high blood pressure?"
+        ]},
+
+        {"session_id": "session_016", "queries": [
+            "What are the symptoms of diabetes?",
+            "What causes diabetes?",
+            "Is diabetes hereditary?",
+            "How common is diabetes?"
+        ]},
+
+        {"session_id": "session_017", "queries": [
+            "What is hypertension?",
+            "What causes high blood pressure?",
+            "How do you treat hypertension?",
+            "What lifestyle changes help?"
+        ]},
+
+        {"session_id": "session_018", "queries": [
+            "What are the symptoms of the flu?",
+            "How is flu different from a cold?",
+            "When should I see a doctor?",
+            "What about flu prevention?",
+            "Do flu vaccines work?"
+        ]},
+
+        {"session_id": "session_019", "queries": [
+            "What are the benefits of renewable energy?",
+            "Why should we use renewable energy?",
+            "What are renewable energy advantages?",
+            "How does renewable energy help the environment?",
+            "What about solar power specifically?"
+        ]},
+
+        {"session_id": "session_020", "queries": [
+            "How does solar power work?",
+            "Explain solar panels",
+            "What is photovoltaic technology?",
+            "How efficient are solar panels?",
+            "What about solar energy storage?"
+        ]},
+
+        {"session_id": "session_021", "queries": [
+            "What are the benefits of renewable energy?",
+            "How does wind energy work?",
+            "What are wind turbines?",
+            "Where are wind farms located?"
+        ]},
+
+        {"session_id": "session_022", "queries": [
+            "What is hydroelectric power?",
+            "How do hydroelectric dams work?",
+            "What are the pros and cons?",
+            "What about environmental impact?"
+        ]},
+
+        {"session_id": "session_023", "queries": [
+            "What are the features of iPhone 15?",
+            "What's new in iPhone 15?",
+            "Tell me about iPhone 15 specs",
+            "How much does iPhone 15 cost?",
+            "What about the camera?"
+        ]},
+
+        {"session_id": "session_024", "queries": [
+            "What are the features of Samsung Galaxy S24?",
+            "What's new in Galaxy S24?",
+            "Tell me about Samsung S24 specs",
+            "How does it compare to iPhone?",
+            "What about the battery life?"
+        ]},
+
+        {"session_id": "session_025", "queries": [
+            "What are the features of iPhone 15?",
+            "Should I upgrade to iPhone 15?",
+            "What's the difference from iPhone 14?",
+            "Is it worth the price?"
+        ]},
+
+        {"session_id": "session_026", "queries": [
+            "What is 5G technology?",
+            "How does 5G work?",
+            "What are 5G benefits?",
+            "Is 5G available everywhere?",
+            "What about 5G health concerns?"
+        ]},
+
+        {"session_id": "session_027", "queries": [
+            "What is the capital of France?",
+            "Tell me about Paris",
+            "What are famous landmarks in Paris?",
+            "What is the population of Paris?",
+            "What about French culture?"
+        ]},
+
+        {"session_id": "session_028", "queries": [
+            "What is the capital of Germany?",
+            "Tell me about Berlin",
+            "What are famous landmarks in Berlin?",
+            "What is the history of Berlin?",
+            "What about the Berlin Wall?"
+        ]},
+
+        {"session_id": "session_029", "queries": [
+            "What is the capital of France?",
+            "What is the capital of Spain?",
+            "What is the capital of Italy?",
+            "What is the capital of the UK?"
+        ]},
+
+        {"session_id": "session_030", "queries": [
+            "What is calculus?",
+            "Explain derivatives",
+            "How do you calculate derivatives?",
+            "What are integrals?",
+            "What's the fundamental theorem of calculus?"
+        ]},
+
+        {"session_id": "session_031", "queries": [
+            "What is linear algebra?",
+            "What are matrices?",
+            "How do you multiply matrices?",
+            "What are eigenvectors?",
+            "What about determinants?"
+        ]},
+
+        {"session_id": "session_032", "queries": [
+            "What is calculus?",
+            "What are real-world applications of calculus?",
+            "Is calculus hard to learn?",
+            "How can I improve at math?"
+        ]},
+
+        {"session_id": "session_033", "queries": [
+            "What is inflation?",
+            "What causes inflation?",
+            "How does inflation affect the economy?",
+            "How do you measure inflation?",
+            "What about deflation?"
+        ]},
+
+        {"session_id": "session_034", "queries": [
+            "What is supply and demand?",
+            "How do supply and demand work?",
+            "What factors affect supply?",
+            "What factors affect demand?",
+            "What about market equilibrium?"
+        ]},
+
+        {"session_id": "session_035", "queries": [
+            "What is inflation?",
+            "What is monetary policy?",
+            "How do central banks control inflation?",
+            "What about interest rates?"
+        ]},
+
+        {"session_id": "session_036", "queries": [
+            "How do I make pasta?",
+            "What's the best way to cook pasta?",
+            "How long do you boil pasta?",
+            "What about pasta sauce?",
+            "How do I make carbonara?"
+        ]},
+
+        {"session_id": "session_037", "queries": [
+            "How do I bake bread?",
+            "What ingredients do I need for bread?",
+            "What's the bread making process?",
+            "How long does bread take to bake?",
+            "What about sourdough?"
+        ]},
+
+        {"session_id": "session_038", "queries": [
+            "What are the rules of basketball?",
+            "How do you play basketball?",
+            "What are basketball positions?",
+            "Who are famous basketball players?",
+            "What about the NBA?"
+        ]},
+
+        {"session_id": "session_039", "queries": [
+            "What are the rules of soccer?",
+            "How do you play football?",
+            "What are soccer positions?",
+            "Who are famous soccer players?",
+            "What about the World Cup?"
+        ]}
+    ],
+    "total_sessions": 40,
+    "total_queries": 200
+}
