@@ -37,7 +37,7 @@ To balance accuracy and efficiency, I applied a two-stage retrieval process insp
 
 get_embedding(user_query) -> faiss.IndexFlatIP(EMBEDDING_DIMENSION)
 
-Only the current user query is embedded (no conversation history) to avoid content bledding.
+Only the current user query is embedded (no conversation history) to avoid content blending.
 
 FAISS retrieves top-k similar queries based on cosine similarity. This ensures that only semantically similar questions (like Q1 and Q3) are considered, while unrelated ones (like Q2) are filtered out early.
 
@@ -90,12 +90,12 @@ The system consists of four components:
 
 ### 2.3 Vector Store
 
-The project uses **FAISS (CPU)** considering its mature performance, fast cosine similarity search, and easy in-memory setup suitable for POF evaluation.
+The project uses **FAISS (CPU)** considering its mature performance, fast cosine similarity search, and easy in-memory setup suitable for evaluation.
 
 ## 3. Details
 
 * **Language:** Python 3.8+
-* **Embeddings Model:** `embedding-001` 
+* **Embeddings Model:** `gemini-embedding-001` 
 * **Cache Storage:** In-memory FAISS index + metadata dictionary
 * **Thresholds:** Two-stage comparison: session τ₁ and global τ₂
 * **Context window:** Last 5 turns per session
