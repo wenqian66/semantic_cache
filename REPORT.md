@@ -24,39 +24,51 @@ This method successfully blocked cache hits between Q1 and Q2 (corn & wheat), bu
 The term filter reduced false positives but also blocked correct matches, which defeats the purpose of saving LLM calls.
 So, using only a term filter was too strict and not reliable.
 
-### 3) Final design: two-stage semantic matching (inspired by ContextCache)
+### 3) Final design: two-stage semantic matching
 
-To balance accuracy and efficiency, I designed a two-stage retrieval process inspired by the ContextCache paper.
+To balance accuracy and efficiency, I applied a two-stage retrieval process inspired by the ContextCache paper.
 
-Stage 1: Query-level retrieval
+#### Stage 1: Query-level retrieval
+
+```python
+  q_emb = get_embedding(user_query)  # L2-normalized
+```
 
 get_embedding(user_query) -> faiss.IndexFlatIP(EMBEDDING_DIMENSION)
 
-Only the current user query is embedded (no conversation history).
+Only the current user query is embedded (no conversation history) to avoid content bledding.
 
-FAISS retrieves top-k similar queries based on cosine similarity (threshold_stage1 = 0.90).
+FAISS retrieves top-k similar queries based on cosine similarity. This ensures that only semantically similar questions (like Q1 and Q3) are considered, while unrelated ones (like Q2) are filtered out early.
 
-This ensures that only semantically similar questions (like Q1 and Q3) are considered, while unrelated ones (like Q2) are filtered out early.
-
-Stage 2: Context-level validation
+```python
+    if query_index.ntotal > 0:
+            k = min(10, query_index.ntotal)
+            query_sims, query_inds = query_index.search(query_emb.reshape(1, -1), k=k)
 ```
-def compute_context_embedding(query_emb, history_embs, decay=0.5):
-    if not history_embs:
-        return query_emb
+#### Stage 2: Context-level validation
 
-    all_embs = history_embs[-5:] + [query_emb]
-    weights = np.array([decay ** (len(all_embs) - i - 1)
-                        for i in range(len(all_embs))])
-    weights = weights / weights.sum()
+  ```python
+  def compute_context_embedding(query_emb, history_embs, decay=0.5):
+      if not history_embs: 
+          return query_emb
+      seq = history_embs[-5:] + [query_emb]
+      w = np.array([decay ** (len(seq) - i - 1) for i in range(len(seq))])
+      w = w / w.sum()
+      c = np.average(seq, axis=0, weights=w)
+      return c / np.linalg.norm(c)
+  ```
 
-    context_emb = np.average(all_embs, axis=0, weights=weights)
-    return context_emb / np.linalg.norm(context_emb)
-```  
 A context embedding is computed by exponentially weighting recent query embeddings (compute_context_embedding with decay=0.5).
 
 Each candidate’s stored context embedding is compared with the new one (threshold_stage2 = 0.85).
 
 A cache hit is confirmed only when both query-level and context-level similarities are above the thresholds.
+
+* Confirm cache hit **only if** both pass: `query_sim > τ1` **and** `ctx_sim > τ2`.
+* **Metadata:** answer, session_id, and the context embedding used when the answer was created (`context_embedding`), plus timestamp.
+
+> Defaults: `threshold_stage1 = 0.90`, `threshold_stage2 = 0.85`, decay `= 0.5`, last `5` turns.
+
 
 ## 2. System Design
 
