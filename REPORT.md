@@ -209,7 +209,7 @@ Possible improvements include using approximate indexing or sharding by topic/us
 
 ### 6.4 Eviction Strategy
 
-In the current version, the cache keeps growing without limits. A practical way to handle this is to use an LFU (Least Frequently Used) strategy with time decay. This means tracking how often and how recently each entry is used, then removing those that are old or rarely accessed.
+In the current version, the cache keeps growing without limits. We can use an LFU (Least Frequently Used) strategy with time decay to handle this issue. This would track how often and how recently each entry is used, then remove those that are old or rarely accessed.
 
 Another possible way is to assign a TTL (time-to-live) based on topic, shorter for fast-changing content like news, and longer for stable or factual information.
 
