@@ -1,9 +1,62 @@
-# Semantic Caching Framework — Proof of Concept
+# Semantic Cache
 
-## 1. Overview
+## 1. Thought Process
 
-This project implements a **semantic caching system** for multi-turn conversational AI, designed to reduce redundant LLM API calls by reusing responses to semantically similar queries.
-Instead of relying on exact string matches, the system leverages **Gemini Embeddings** and **context-aware representations** to detect semantic duplicates across and within sessions.
+Demo example:
+
+Q1: "What is the impact of climate change on corn yields?"
+
+Q2: "What about wheat?"
+
+Q3: "How does global warming affect corn production?"
+
+### 1) embedding the whole conversation (failed)
+
+At first, I embedded the current query together with 3 previous turns, then used this single embedding for similarity search.
+However, even though Q2 is about wheat, it still matched the cached entry for corn with a similarity score above 0.92.
+Raising the threshold didn’t help because the embedding was mixed with too much context, the historical “corn” content made “wheat” look similar.
+In short, including the historical conversation and simple similarity filter caused semantic contamination and incorrect cache hits.
+
+### 2) term-based filter (failed)
+
+Next, I tried extracting keywords from each query (using a simple stemmer or spaCy) and compared them using Jaccard similarity.
+This method successfully blocked cache hits between Q1 and Q2 (corn & wheat), but it also wrongly rejected Q3, which is actually semantically close to Q1.
+The term filter reduced false positives but also blocked correct matches, which defeats the purpose of saving LLM calls.
+So, using only a term filter was too strict and not reliable.
+
+### 3) Final design: two-stage semantic matching (inspired by ContextCache)
+
+To balance accuracy and efficiency, I designed a two-stage retrieval process inspired by the ContextCache paper.
+
+Stage 1: Query-level retrieval
+
+get_embedding(user_query) -> faiss.IndexFlatIP(EMBEDDING_DIMENSION)
+
+Only the current user query is embedded (no conversation history).
+
+FAISS retrieves top-k similar queries based on cosine similarity (threshold_stage1 = 0.90).
+
+This ensures that only semantically similar questions (like Q1 and Q3) are considered, while unrelated ones (like Q2) are filtered out early.
+
+Stage 2: Context-level validation
+```
+def compute_context_embedding(query_emb, history_embs, decay=0.5):
+    if not history_embs:
+        return query_emb
+
+    all_embs = history_embs[-5:] + [query_emb]
+    weights = np.array([decay ** (len(all_embs) - i - 1)
+                        for i in range(len(all_embs))])
+    weights = weights / weights.sum()
+
+    context_emb = np.average(all_embs, axis=0, weights=weights)
+    return context_emb / np.linalg.norm(context_emb)
+```  
+A context embedding is computed by exponentially weighting recent query embeddings (compute_context_embedding with decay=0.5).
+
+Each candidate’s stored context embedding is compared with the new one (threshold_stage2 = 0.85).
+
+A cache hit is confirmed only when both query-level and context-level similarities are above the thresholds.
 
 ## 2. System Design
 
