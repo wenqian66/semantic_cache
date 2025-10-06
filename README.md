@@ -113,4 +113,4 @@ Numbers below are sample results; your run may vary
 - **Speedup (Cache vs LLM):** **55.7×**
 - **LLM Calls Saved:** **68 / 187**
 
-See `REPORT.md` for details.
+See [REPORT.md](./REPORT.md) for details.
