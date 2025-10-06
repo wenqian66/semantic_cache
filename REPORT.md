@@ -99,7 +99,7 @@ The project uses **FAISS (CPU)** considering its mature performance, fast cosine
 * **Cache Storage:** In-memory FAISS index + metadata dictionary
 * **Thresholds:** Two-stage comparison: session τ₁ and global τ₂
 * **Context window:** Last 5 turns per session
-* **Mode:** Global mode by default， each session can access embeddings from previous sessions. Session mode restricts matching to within-session only
+* **Mode:** Global mode by default, each session can access embeddings from previous sessions. Session mode restricts matching to within-session only
 
 
 ## 4. Evaluation Setup
@@ -248,8 +248,11 @@ Later query "FY2021 ratio for Best Buy" reuses template, small LM adapts entity 
 
 **Trade-offs**: Effective for structured workflows; less useful for novel reasoning tasks.
 
-Reference: arXiv:2506.14852
-	arXiv:2506.22791
+Reference: 
+
+arXiv:2506.14852
+
+arXiv:2506.22791
 
 
 
