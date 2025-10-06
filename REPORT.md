@@ -106,7 +106,7 @@ The project uses **FAISS (CPU)** considering its mature performance, fast cosine
 
 ### 4.1 Dataset
 
-**evaluation_dataset.json**: Prepared with 187 queries across 40 sessions.
+**evaluation_dataset.json**: 187 queries across 40 sessions.
 
 A smaller dataset **paras_dataset.json** that contains **71 queries across 18 sessions**
 
@@ -229,6 +229,31 @@ By that point, the earlier turns are forgotten, the context embedding is dominat
 Also, the system doesn’t check factual accuracy but only focus on semantic similarity, two questions might sound similar but need different answers. For example "What is the impact of climate change on corn yields?" and "What is the impact of climate change on wheat yields?" have high similarity because the sentence pattern is the same. The system might mistakenly return a cached answer about corn when the user is actually asking about wheat. This happens because embeddings capture question structure without distinguishing that corn and wheat are different. 
 
 ### 7.2 Caching Proposal for AI Agents
+
+**Example**
+The following approach and example is from paper *“Cost-Efficient Serving of LLM Agents via Test-Time Plan Caching.”*  
+
+**What to Cache**: generalized reasoning workflows stripped of context-specific details. Not final answers or tool results 
+
+**Cache Key**: `[goal_keyword] + [agent_state] + [tool_type]`
+
+Example from Zhang et al.: "What is FY2019 working capital ratio for Costco?" generates plan template:
+1. Extract total current assets/liabilities
+2. Calculate ratio
+3. Round to 2 decimals
+
+Later query "FY2021 ratio for Best Buy" reuses template, small LM adapts entity names → skips expensive planning.
+
+**Key insight**: Keyword matching outperforms semantic similarity for agent caching-avoids threshold tuning and false positives.
+
+**Trade-offs**: Effective for structured workflows; less useful for novel reasoning tasks.
+
+Reference: arXiv:2506.14852
+
+
+
+
+
 
 
 
