@@ -41,7 +41,7 @@ python demo.py
 python evaluation.py
 ```
 
-Processes 200 queries across 40 sessions (`evaluation_dataset.json`).
+Processes 187 queries across 40 sessions (`evaluation_dataset.json`).
 
 Runtime depends on API latency and rate limits.
 
@@ -69,7 +69,7 @@ Output: threshold_dim_comparison.json
 semantic_cache/
 ├── semantic_cache.py       # main functions
 ├── evaluation.py           # Evaluation framework
-├── evaluation_dataset.json # 200 test queries
+├── evaluation_dataset.json # 187 test queries
 ├── evaluation_results.json # Results (θ1 = 0.90, θ2 = 0.85, mode = global)
 ├── utils.py                # Term extraction (not used at end)
 ├── demo.py
