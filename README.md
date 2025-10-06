@@ -55,7 +55,7 @@ Output: evaluation_results.json
 python paras_evaluate.py
 ```
 
-Processes 56 queries across 18 sessions (`evaluation_dataset.json`).
+Processes 71 queries across 18 sessions (`evaluation_dataset.json`).
 
 Input: paras_dataset.json
 
