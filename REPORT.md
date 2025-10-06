@@ -107,6 +107,7 @@ The project uses **FAISS (CPU)** considering its mature performance, fast cosine
 ### 4.1 Dataset
 
 **evaluation_dataset.json**: Prepared with 187 queries across 40 sessions.
+
 A smaller dataset **paras_dataset.json** that contains **71 queries across 18 sessions**
 
 
