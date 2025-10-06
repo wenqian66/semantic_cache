@@ -242,7 +242,7 @@ Example from Zhang et al.: "What is FY2019 working capital ratio for Costco?" ge
 2. Calculate ratio
 3. Round to 2 decimals
 
-Later query "FY2021 ratio for Best Buy" reuses template, small LM adapts entity names → skips expensive planning.
+Later query "FY2021 ratio for Best Buy" reuses template, small LM adapts entity names -> skips expensive planning.
 
 **Key insight**: Keyword matching outperforms semantic similarity for agent caching-avoids threshold tuning and false positives.
 
