@@ -249,6 +249,7 @@ Later query "FY2021 ratio for Best Buy" reuses template, small LM adapts entity 
 **Trade-offs**: Effective for structured workflows; less useful for novel reasoning tasks.
 
 Reference: arXiv:2506.14852
+	arXiv:2506.22791
 
 
 
