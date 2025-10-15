@@ -167,8 +167,8 @@ check accuracy for **threshold_dim_comparison.json** result
 |----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
 | Q1 | What is the impact of climate change on corn yields in the US? | llm | llm | llm | llm | llm | llm |
 | Q2 | How does global warming affect corn production? | cache | cache | cache | cache | cache | cache |
-| Q3 | What factors influence maize crop productivity? | cache | llm | llm | cache | llm | llm |
-| Q4 | Can you explain corn yield variations? | cache | llm | cache | cache | llm | llm |
+| Q3 | What factors influence maize crop productivity? | llm | llm | llm | cache | llm | llm |
+| Q4 | Can you explain corn yield variations? | llm | llm | cache | cache | llm | llm |
 | Q5 | What about wheat yields under climate change? | llm | llm | cache | cache | cache | cache |
 
 ---
