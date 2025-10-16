@@ -139,18 +139,24 @@ All tests were run with top-k = 10 and decay = 0.5
 
 ## 5. Results Summary
 ### 5.1 threshold_dim_comparison.json
+| Dim | Setting | Hit Rate | Speedup | LLM Calls | Cache Hits | Total Queries |
+|:----|:---------|:----------|:----------|:------------|:--------------|:----------------|
+| 256 | Strict | 0.316 | 26.54 | 39 | 18 | 57 |
+| 256 | Balanced | 0.509 | 36.07 | 28 | 29 | 57 |
+| 256 | Relaxed | 0.789 | 37.65 | 12 | 45 | 57 |
+| 512 | Strict | 0.211 | 30.15 | 45 | 12 | 57 |
+| 512 | Balanced | 0.351 | 3.23 | 37 | 20 | 57 |
+| 512 | Relaxed | 0.596 | 28.84 | 23 | 34 | 57 |
+| 768 | Strict | 0.246 | 27.48 | 43 | 14 | 57 |
+| 768 | Balanced | 0.404 | 31.04 | 34 | 23 | 57 |
+| 768 | Relaxed | 0.632 | 30.76 | 21 | 36 | 57 |
+| 1536 | Strict | 0.193 | 27.08 | 46 | 11 | 57 |
+| 1536 | Balanced | 0.368 | 30.40 | 36 | 21 | 57 |
+| 1536 | Relaxed | 0.614 | 28.45 | 22 | 35 | 57 |
+| 3072 | Strict | 0.246 | 28.70 | 43 | 14 | 57 |
+| 3072 | Balanced | 0.439 | 31.99 | 32 | 25 | 57 |
+| 3072 | Relaxed | 0.684 | 31.76 | 18 | 39 | 57 |
 
-| Dim | Setting  | Hit rate | Speedup | LLM calls | Cache hits | Total |
-| --- | -------- | -------- | ------- | --------- | ---------- | ----- |
-| 256 | Strict   | 25.4%    | 19.2x   | 53        | 18         | 71    |
-| 256 | Balanced | 57.7%    | 22.8x   | 30        | 41         | 71    |
-| 256 | Relaxed  | 78.9%    | 23.4x   | 15        | 56         | 71    |
-| 512 | Strict   | 12.7%    | 24.5x   | 62        | 9          | 71    |
-| 512 | Balanced | 40.8%    | 18.0x   | 42        | 29         | 71    |
-| 512 | Relaxed  | 63.4%    | 19.6x   | 26        | 45         | 71    |
-| 768 | Strict   | 15.5%    | 20.6x   | 60        | 11         | 71    |
-| 768 | Balanced | 43.7%    | 20.4x   | 40        | 31         | 71    |
-| 768 | Relaxed  | 69.0%    | 19.8x   | 22        | 49         | 71    |
 
 **Best Trade-off:** 256d (Balanced) — *57.7% hit rate, 22.8× latency reduction*. 
 Based on latency and hit-rate metrics only; the actual quality of cached answers still needs manual or model-based accuracy checking.
@@ -166,37 +172,39 @@ Based on latency and hit-rate metrics only; the actual quality of cached answers
 * Overall speedup: **55.7×**
 
 ### 5.3 accuracy sample check
-
+Best Accuracy: 256d-Balanced, 256d-Strict, 512d-Balanced 
+For 256d-Balanced: mostly false positives (irrelevant cache hits)
+For 256d-Strict, 512d-Balanced: mostly false negatives (missed reuse opportunities)
 check accuracy for **threshold_dim_comparison.json** result
-### Session 000 — Climate Change & Agriculture
-| Q# | Query | Expected | 256d-Strict | 256d-Balanced | 256d-Relaxed | 512d-Balanced | 768d-Balanced |
-|----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
-| Q1 | What is the impact of climate change on corn yields in the US? | llm | llm | llm | llm | llm | llm |
-| Q2 | How does global warming affect corn production? | cache | cache | cache | cache | cache | cache |
-| Q3 | What factors influence maize crop productivity? | llm | llm | llm | cache | llm | llm |
-| Q4 | Can you explain corn yield variations? | llm | llm | cache | cache | llm | llm |
-| Q5 | What about wheat yields under climate change? | llm | llm | cache | cache | cache | cache |
 
----
+| Question | Query | Manual | 256d-Balanced | 256d-Relaxed | 256d-Strict | 512d-Balanced | 512d-Relaxed | 512d-Strict | 768d-Balanced | 768d-Relaxed | 768d-Strict | 1536d-Balanced | 1536d-Relaxed | 1536d-Strict | 3072d-Balanced | 3072d-Relaxed | 3072d-Strict |
+|:----------|:-------|:--------|:---------------|:--------------|:-------------|:---------------|:--------------|:-------------|:---------------|:--------------|:-------------|:----------------|:---------------|:--------------|:----------------|:---------------|:--------------|
+| **=== session_000 ===** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Q1 | "What is the impact of climate change on corn yields?" | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm |
+| Q2 | "How does global warming affect corn production?" | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache |
+| Q3 | "What factors influence maize crop productivity?" | llm | llm | cache | llm | llm | cache | llm | llm | cache | llm | llm | cache | llm | llm | cache | llm |
+| Q4 | "Can you explain corn yield variations?" | cache | cache | cache | llm | llm | cache | llm | cache | cache | llm | llm | cache | llm | cache | cache | llm |
+| Q5 | "What about wheat yields under climate change?" | llm | cache | cache | llm | cache | cache | llm | cache | cache | llm | cache | cache | llm | cache | cache | llm |
+| **=== session_001 ===** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Q1 | "How does climate change affect wheat production?" | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache |
+| Q2 | "What are the main threats to wheat farming?" | llm | llm | cache | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm |
+| Q3 | "How do rising temperatures impact wheat?" | cache | cache | cache | llm | llm | cache | llm | llm | cache | llm | llm | cache | llm | llm | cache | llm |
+| Q4 | "What about soybeans?" | llm | llm | cache | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm |
+| Q5 | "What factors influence maize crop productivity?" | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache |
+| **=== session_002 ===** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Q1 | "What is the impact of climate change on corn yields?" | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache |
+| Q2 | "How does drought affect crop production?" | llm | cache | cache | llm | llm | cache | llm | llm | cache | llm | llm | cache | llm | llm | cache | llm |
+| Q3 | "What irrigation methods work best?" | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm |
+| Q4 | "Can technology help improve yields?" | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm |
+| Q5 | "How does global warming affect corn production?" | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache | cache |
+| **=== session_005 ===** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Q1 | "What is supervised learning?" | llm | cache | cache | llm | llm | cache | llm | cache | cache | llm | cache | cache | llm | cache | cache | llm |
+| Q2 | "Explain supervised learning" | cache | cache | cache | cache | cache | cache | cache | llm | cache | cache | llm | cache | cache | llm | cache | cache |
+| Q3 | "How does supervised ML work?" | cache | cache | cache | cache | cache | cache | llm | cache | cache | cache | cache | cache | llm | cache | cache | cache |
+| Q4 | "What are some examples?" | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm | llm |
+| Q5 | "What about unsupervised learning?" | llm | cache | cache | llm | llm | cache | llm | llm | llm | llm | llm | llm | llm | cache | cache | llm |
 
-### Session 002 — Wheat Production
-| Q# | Query | Expected | 256d-Strict | 256d-Balanced | 256d-Relaxed | 512d-Balanced | 768d-Balanced |
-|----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
-| Q1 | How does climate change affect wheat production in North America? | llm | llm | cache | cache | cache | cache |
-| Q2 | What are the main threats to wheat farming? | cache | llm | llm | llm | llm | llm |
-| Q3 | How do rising temperatures impact wheat? | cache | llm | cache | cache | llm | llm |
-
----
-
-### Session 005 — Supervised Learning
-| Q# | Query | Expected | 256d-Strict | 256d-Balanced | 256d-Relaxed | 512d-Balanced | 768d-Balanced |
-|----|--------|-----------|--------------|----------------|---------------|----------------|----------------|
-| Q1 | What is supervised learning? | llm | llm | cache | cache | llm | cache |
-| Q2 | Explain supervised learning | cache | cache | cache | cache | cache | llm |
-| Q3 | How does supervised ML work? | cache | cache | cache | cache | cache | cache |
-| Q4 | What are some examples? | cache | llm | llm | llm | llm | llm |
-| Q5 | What about unsupervised learning? | llm | llm | cache | cache | llm | llm |
-
+Complete version see [final_tabel.md](https://github.com/wenqian66/semantic_cache/blob/main/final_table.md)
 
 ## 6. Analysis and Discussion
 
@@ -226,11 +234,7 @@ Another possible way is to assign a TTL (time-to-live) based on topic, shorter f
 ## 7. Limitations and Extensions
 
 ### 7.1 Limitations
-
-The current version works well for short chats but not for long or complex ones.
-Because the cache only looks at the last five turns, it quickly loses track of older context.
-For example, if a user talks about topic A in turns 1–4, switches to topic B in turns 5–9, and then comes back to topic A at turn 10, the cache won’t recognize it.
-By that point, the earlier turns are forgotten, the context embedding is dominated by topic B, and even a previously cached answer about topic A won't be reused.
+The current version works well for small chats but not for long or complex ones. Because the system stored both the single embedding and combined embedding, and the index, for longer conversations, the system will overload.
   
 Also, the system doesn’t check factual accuracy but only focus on semantic similarity, two questions might sound similar but need different answers. For example "What is the impact of climate change on corn yields?" and "What is the impact of climate change on wheat yields?" have high similarity because the sentence pattern is the same. The system might mistakenly return a cached answer about corn when the user is actually asking about wheat. This happens because embeddings capture question structure without distinguishing that corn and wheat are different. 
 
@@ -238,19 +242,15 @@ Also, the system doesn’t check factual accuracy but only focus on semantic sim
 
 **Example**
 The following approach and example is from paper *“Cost-Efficient Serving of LLM Agents via Test-Time Plan Caching.”*  
+In our example, we are not focusing on agent caching, so the template may not pretty useful here. I planed only apply a small, cost-efficient LLM model here to extract keywords, then stored them in cache and if the the keywords are found in cache, then treat as cache hit.
 
-**What to Cache**: generalized reasoning workflows stripped of context-specific details. Not final answers or tool results 
+Example from Zhang et al.: "What is FY2019 working capital ratio for Costco?" 
+->
+keyword: working capital ratio
+->
+stored in cache
 
-**Cache Key**: `[goal_keyword] + [agent_state] + [tool_type]`
-
-Example from Zhang et al.: "What is FY2019 working capital ratio for Costco?" generates plan template:
-1. Extract total current assets/liabilities
-2. Calculate ratio
-3. Round to 2 decimals
-
-Later query "FY2021 ratio for Best Buy" reuses template, small LM adapts entity names -> skips expensive planning.
-
-**Key insight**: Keyword matching outperforms semantic similarity for agent caching-avoids threshold tuning and false positives.
+**Key insight**: Keyword matching outperforms semantic similarity for agent caching-avoids threshold tuning and false positives. However, I still think similarity should be used here, with the keyword algorithm serving as a supplement, since this is not an agent problem. Those context-specific details that were considered overemphasized in agent caching are still important in our problem.
 
 **Trade-offs**: Effective for structured workflows; less useful for novel reasoning tasks.
 
