@@ -32,7 +32,13 @@ To balance accuracy and efficiency, I applied a two-stage retrieval process insp
 #### Stage 1: Query-level retrieval
 
 ```python
-  q_emb = get_embedding(user_query)  # L2-normalized
+def get_embedding(text, task_type="SEMANTIC_SIMILARITY",):
+  ...
+    # return the embedding from API gemini-embedding-001, then L2-normalized
+    embedding = np.array(result.embeddings[0].values, dtype='float32')
+    return embedding / np.linalg.norm(embedding)
+
+q_emb = get_embedding(user_query) 
 ```
 
 get_embedding(user_query) -> faiss.IndexFlatIP(EMBEDDING_DIMENSION)
